@@ -1,16 +1,6 @@
 """
 Sensor to indicate today's lunar date.
-For more details about this platform, please refer to the documentation at
-https://github.com/GrecHouse/lunar_date
 
-* korean-lunar-calendar 라이브러리를 이용합니다.
-에러가 발생할 경우 pip 로 설치해주세요.
-https://pypi.org/project/korean-lunar-calendar/
-
-HA 음력센서 : 오늘의 음력 날짜를 알려줍니다.
-- 2019-06-24 다모아님의 요청으로 제작
-- 2019-06-25 korean-lunar-calendar 를 설치하지 않고 소스에 통합함
-- 2020-03-16 korean-lunar-calendar 분리
 """
 
 from datetime import timedelta
@@ -25,7 +15,7 @@ from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
 import homeassistant.util.dt as dt_util
 from homeassistant.helpers.event import async_track_point_in_utc_time
-from korean_lunar_calendar import KoreanLunarCalendar
+from vietnamese_lunar_date import S2L
 
 import datetime
 
@@ -90,11 +80,10 @@ class LunarDateSensor(Entity):
 
     def _update_internal_state(self, time_date):
         date = dt_util.as_local(time_date).date()
-        calendar = KoreanLunarCalendar()
-        calendar.setSolarDate(date.year, date.month, date.day)
-        lunar_date = calendar.LunarIsoFormat()
+        converted = S2L(date.day, date.month, date.year)
+        lunar_date = "%04d-%02d-%02d" % (converted[2], converted[1], converted[0])
         self._state = lunar_date
-        self._attribute = { 'korean_gapja': calendar.getGapJaString(), 'chinese_gapja': calendar.getChineseGapJaString() }
+        self._attribute = {}
 
     @callback
     def point_in_time_listener(self, time_date):

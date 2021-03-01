@@ -1,6 +1,6 @@
 {
-  "name": "[KR] Luna Date Sensor",
-  "country": "KR",
+  "name": "[VN] Luna Date Sensor",
+  "country": "VN",
   "domains": ["sensor"],  
   "render_readme": true
 }

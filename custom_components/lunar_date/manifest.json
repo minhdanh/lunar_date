@@ -1,8 +1,8 @@
 {
   "domain": "lunar_date",
   "name": "Lunar Date",
-  "documentation": "https://github.com/GrecHouse/lunar_date",
-  "requirements": ["korean-lunar-calendar==0.2.0"],
+  "documentation": "https://github.com/minhdanh/lunar_date",
+  "requirements": [],
   "dependencies": [],
-  "codeowners": ["@GrecHouse"]
+  "codeowners": []
 }
