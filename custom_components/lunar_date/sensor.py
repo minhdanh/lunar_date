@@ -15,7 +15,7 @@ from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
 import homeassistant.util.dt as dt_util
 from homeassistant.helpers.event import async_track_point_in_utc_time
-from vietnamese_lunar_date import S2L
+from vietnamese_lunar_calendar import S2L
 
 import datetime
 
