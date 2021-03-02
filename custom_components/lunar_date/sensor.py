@@ -83,7 +83,7 @@ class LunarDateSensor(Entity):
         converted = S2L(date.day, date.month, date.year)
         lunar_date = "%04d-%02d-%02d" % (converted[2], converted[1], converted[0])
         self._state = lunar_date
-        self._attribute = {}
+        self._attribute = { 'day': converted[0], 'month': converted[1], 'year': converted[2] }
 
     @callback
     def point_in_time_listener(self, time_date):
