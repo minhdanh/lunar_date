@@ -1,8 +1,10 @@
 {
   "domain": "lunar_date",
-  "name": "Lunar Date",
+  "name": "lunar_date",
   "documentation": "https://github.com/minhdanh/lunar_date",
-  "requirements": [],
   "dependencies": [],
-  "codeowners": []
+  "codeowners": ["@minhdanh"],
+  "requirements": [],
+  "iot_class": "local_push",
+  "version": "0.1.2"
 }
